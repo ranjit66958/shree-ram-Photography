@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photon Weddifly — Studio Dashboard</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo"><span class="logo-p">P</span><span>Photon<small>Weddifly</small></span></div>
+    <nav>
+      <a class="nav active" href="#dashboard">⌂ <span>Dashboard</span></a>
+      <a class="nav" href="#photo-selection">▣ <span>Photo Selection</span></a>
+      <a class="nav" href="#invitation">▤ <span>Invitation</span></a>
+      <a class="nav" href="#digital-album">▧ <span>Digital Album</span></a>
+      <a class="nav" href="#ai-face">◎ <span>AI Face Recognition</span><b>⌄</b></a>
+      <a class="nav" href="#subscription">◉ <span>AI Subscription</span></a>
+      <a class="nav" href="#my-subscription">▤ <span>My Subscription</span></a>
+      <a class="nav" href="#ai-access">✣ <span>AI-Access</span></a>
+      <a class="nav" href="#album-tools">▣ <span>Album & Event / Invite</span></a>
+      <div class="nav-caption">BUSINESS TOOLS</div>
+      <a class="nav" href="#whatsapp">◉ <span>WhatsApp Credits</span></a>
+      <a class="nav" href="#billing">▤ <span>Billing</span><em>NEW</em></a>
+      <a class="nav" href="#website">◈ <span>My Website</span><em>NEW</em></a>
+      <a class="nav" href="#gallery-banner">▧ <span>Gallery Banner</span><em>NEW</em></a>
+      <div class="nav-caption">ACCOUNT</div>
+      <a class="nav" href="#profile">♙ <span>My Profile</span></a>
+      <a class="nav" href="#help">ⓘ <span>Help Center</span></a>
+      <a class="nav" href="#support">✉ <span>Support Tickets</span></a>
+    </nav>
+    <button class="logout" id="logout">↪ Logout</button>
+  </aside>
+  <main class="content">
+    <header class="topbar"><div class="search">⌕ <input placeholder="Search users, clients, ..." aria-label="Search"></div><div class="top-right"><span class="tiny-icon">♧</span><span class="tiny-icon">▣</span><span class="tiny-icon">◉</span><button class="pill purple">◉ DEMO VIDEO</button><button class="pill orange">▣ WHATSAPP</button><div class="user"><span class="user-avatar">PS</span><b>STUDIO ADMINISTRATOR⌄</b></div></div></header>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="hero-brand">Photon <span>Weddifly</span></div>
+        <div class="eyebrow">FROM THOUSANDS OF PHOTOS TO</div>
+        <h1>Photo <span>Selection</span></h1>
+        <div class="made">MADE SIMPLE</div><div class="gradient-line"></div>
+        <button class="trial" id="trialBtn">Start Free Trial <span>→</span></button>
+      </div>
+      <div class="hero-art">
+        <div class="smart">SMART<br>PHOTOGRAPHY<br>SOLUTIONS</div>
+        <div class="photo-pile pile-one"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=450&q=80" alt="Wedding couple"><img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=450&q=80" alt="Wedding couple"></div>
+        <div class="photo-pile pile-two"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=450&q=80" alt="Wedding celebration"><img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=450&q=80" alt="Wedding couple"></div>
+        <div class="floating-note note-one">Upload<br>Once ↘</div><div class="floating-note note-two">Final<br>Selection ♥</div><div class="arrow">➜</div>
+      </div>
+    </section>
+    <section class="stats">
+      <div class="stat selected"><span class="stat-icon">▣</span><div><b>Total Albums</b><strong>2</strong><small>All time</small></div></div>
+      <div class="stat"><span class="stat-icon pink">▧</span><div><b>Photo Selection</b><strong>2</strong><small>All time</small></div></div>
+      <div class="stat"><span class="stat-icon coral">▣</span><div><b>Digital Album</b><strong>0</strong><small>All time</small></div></div>
+      <div class="stat"><span class="stat-icon orange-icon">◉</span><div><b>Face Recognition</b><strong>0</strong><small>All time</small></div></div>
+    </section>
+    <section class="quick-actions">
+      <button class="quick green" data-msg="Create Bill panel opened"><span>▣</span><b>Create Bill</b><small>Generate a new invoice</small><i>⌄</i></button>
+      <button class="quick orange-card" data-msg="Manage Website panel opened"><span>◈</span><b>Manage Website</b><small>Edit your public website</small><i>⌄</i></button>
+      <button class="quick mint" data-msg="WhatsApp Credit panel opened"><span>◉</span><b>WhatsApp Credit</b><small>View messaging credits</small><i>⌄</i></button>
+    </section>
+    <section class="dashboard-grid">
+      <div class="card analytics"><div class="card-heading"><div><h3>Event Analytics</h3><p>Events & albums created over the last 12 months.</p></div><span class="badge">12 Month</span></div>
+        <div class="chart"><div class="y-labels"><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="chart-area"><div class="grid-lines"><i></i><i></i><i></i><i></i></div><div class="bar" title="October: 2"></div><div class="months"><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span></div></div></div>
+      </div>
+      <div class="card recent"><div class="card-heading"><div><h3>Recent Albums</h3><p>Your latest digital albums.</p></div></div><div class="empty"><div class="empty-icon">▧</div><b>No digital albums yet.</b><span>Create your first album</span></div></div>
+    </section>
+    <section class="card events"><div class="card-heading"><div><h3>Recent Events</h3><p>Latest photo selection events.</p></div><button class="small-btn" id="viewAll">View all</button></div>
+      <div class="table-scroll"><table><thead><tr><th>EVENT ID</th><th>EVENT NAME</th><th>CUSTOMER</th><th>DATE</th><th>STATUS</th></tr></thead><tbody><tr><td class="id">#G0036</td><td>haldi vivah</td><td>MEHUL</td><td>Oct 19, 2026</td><td><span class="status success">Delivered</span></td></tr><tr><td class="id">#G0035</td><td>marriage photos</td><td>MANISHA &amp; MAMTA</td><td>Oct 18, 2026</td><td><span class="status pending">Pending</span></td></tr></tbody></table></div>
+    </section>
+    <section class="bottom-grid">
+      <div class="app-card"><div class="app-symbol">▣</div><h3>Download our App</h3><p>Available on Android, iOS & Windows.</p><div class="app-buttons"><button data-msg="Android app link can be added here">♟ Android</button><button data-msg="iOS app link can be added here">● iOS</button><button data-msg="Windows app link can be added here">▰ Windows</button></div></div>
+      <div class="card progress"><div class="card-heading"><div><h3>Project Progress</h3><p>Photo selection completion.</p></div></div><div class="donut"><div><b>50%</b><small>Project closed</small></div></div><div class="legend"><span>● Completed</span><span>● Pending</span></div></div>
+      <div class="card activity"><div class="card-heading"><div><h3>Client Activity</h3><p>Recent activity on your projects.</p></div><button class="small-btn" id="activityBtn">View all</button></div><div class="activity-row"><span class="client-dot">M</span><div><b>MEHUL</b><small>Viewing an album</small></div><span class="status success">Completed</span></div><div class="activity-row"><span class="client-dot purple-dot">M</span><div><b>MANISHA &amp; MAMTA</b><small>Waiting for client selection</small></div><span class="status pending">In Progress</span></div></div>
+    </section>
+    <footer>Copyright © 2026 <b>Photon Weddifly</b>. Designed with ♥ for photographers.</footer>
+  </main>
+</div>
+<div id="toast" class="toast"></div><script src="script.js"></script>
+</body></html>
