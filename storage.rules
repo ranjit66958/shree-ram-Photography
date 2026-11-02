@@ -1,0 +1,10 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Safe starter default: no public uploads. Use Firebase Console to host images,
+    // then put each HTTPS download URL in the Firestore gallery collection.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

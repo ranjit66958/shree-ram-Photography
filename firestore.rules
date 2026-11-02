@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public customer gallery: only published photo documents should be stored here.
+    match /gallery/{photoId} {
+      allow read: if true;
+      allow write: if false; // Manage gallery documents from Firebase Console or a secured admin tool.
+    }
+    // Public customer selection form. Add App Check / rate limiting before production use.
+    match /selections/{selectionId} {
+      allow create: if request.resource.data.keys().hasOnly(['customerName','customerPhone','customerNote','photos','status','createdAt'])
+        && request.resource.data.customerName is string
+        && request.resource.data.customerName.size() > 0
+        && request.resource.data.customerName.size() <= 100
+        && request.resource.data.customerPhone is string
+        && request.resource.data.customerPhone.size() > 0
+        && request.resource.data.customerPhone.size() <= 20
+        && request.resource.data.customerNote is string
+        && request.resource.data.customerNote.size() <= 500
+        && request.resource.data.photos is list
+        && request.resource.data.photos.size() > 0
+        && request.resource.data.photos.size() <= 100
+        && request.resource.data.status == 'new';
+      allow read, update, delete: if false; // Keep customer selections private; view in Firebase Console as project owner.
+    }
+  }
+}
