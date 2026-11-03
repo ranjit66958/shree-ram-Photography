@@ -13,7 +13,7 @@ import {
 import { firebaseConfig } from "./firebase-config.js";
 
 // IMPORTANT: આ ઈમેઇલને firestore.rules અને storage.rulesમાં પણ એ જ રાખવો.
-const ADMIN_EMAIL = "YOUR_ADMIN_EMAIL";
+const ADMIN_EMAIL = "ranjit66957@gmail.com";
 const $ = (id) => document.getElementById(id);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
