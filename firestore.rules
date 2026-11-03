@@ -1,14 +1,33 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Public customer gallery: only published photo documents should be stored here.
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email == 'YOUR_ADMIN_EMAIL'
+        && request.auth.token.email_verified == true;
+    }
+
+    // Public website reads gallery; only verified Admin can manage it.
     match /gallery/{photoId} {
       allow read: if true;
-      allow write: if false; // Manage gallery documents from Firebase Console or a secured admin tool.
+      allow create: if isAdmin()
+        && request.resource.data.keys().hasOnly(['title','url','storagePath','createdAt'])
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.title.size() <= 150
+        && request.resource.data.url is string
+        && request.resource.data.url.matches('https://.*')
+        && request.resource.data.storagePath is string
+        && request.resource.data.storagePath.matches('gallery/.*');
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }
-    // Public customer selection form. Add App Check / rate limiting before production use.
+
+    // Anyone may submit a bounded selection; only Admin may read or change it.
     match /selections/{selectionId} {
-      allow create: if request.resource.data.keys().hasOnly(['customerName','customerPhone','customerNote','photos','status','createdAt'])
+      allow create: if request.resource.data.keys().hasOnly([
+          'customerName','customerPhone','customerNote','photos','status','createdAt'
+        ])
         && request.resource.data.customerName is string
         && request.resource.data.customerName.size() > 0
         && request.resource.data.customerName.size() <= 100
@@ -21,7 +40,12 @@ service cloud.firestore {
         && request.resource.data.photos.size() > 0
         && request.resource.data.photos.size() <= 100
         && request.resource.data.status == 'new';
-      allow read, update, delete: if false; // Keep customer selections private; view in Firebase Console as project owner.
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Customer profile collection is private by default.
+    match /customers/{customerId} {
+      allow read, write: if isAdmin();
     }
   }
 }

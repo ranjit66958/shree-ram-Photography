@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="gu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin Panel | Shree Ram Photography</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><div class="eyebrow">SECURE ADMIN</div><h1>Shree Ram Photography</h1><p>ફોટો ગેલેરી અને ગ્રાહક પસંદગી વ્યવસ્થાપન</p></div>
+    <a class="back" href="index.html">← જાહેર વેબસાઇટ</a>
+  </header>
+
+  <main class="wrap">
+    <section id="loginPanel" class="panel narrow">
+      <h2>Admin Login</h2>
+      <p class="muted">ફક્ત મંજૂર કરેલો Admin ઈમેઇલ વાપરો.</p>
+      <form id="loginForm">
+        <label>Admin Email<input id="email" type="email" autocomplete="username" required></label>
+        <label>Password<input id="password" type="password" autocomplete="current-password" required minlength="6"></label>
+        <button class="primary" type="submit">Login</button>
+      </form>
+      <button id="resetPassword" class="text-button" type="button">પાસવર્ડ ભૂલી ગયા?</button>
+      <p id="loginMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="verifyPanel" class="panel narrow hidden">
+      <h2>ઈમેઇલ વેરિફિકેશન જરૂરી</h2>
+      <p id="verifyText">તમારા Admin ઈમેઇલને વેરિફાય કરો.</p>
+      <button id="sendVerification" class="primary" type="button">વેરિફિકેશન ઈમેઇલ ફરી મોકલો</button>
+      <button id="verifySignOut" class="secondary" type="button">Logout</button>
+      <p id="verifyMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="adminPanel" class="hidden">
+      <div class="panel welcome">
+        <div><div class="eyebrow">ADMIN DASHBOARD</div><h2>નમસ્તે, Admin</h2><p id="signedInAs" class="muted"></p></div>
+        <button id="logout" class="secondary" type="button">Logout</button>
+      </div>
+
+      <section class="panel">
+        <h2>ગેલેરીમાં ફોટા ઉમેરો</h2>
+        <p class="muted">ફોટા Firebase Storageમાં અપલોડ થશે અને તેની URL <code>gallery</code> collectionમાં સાચવાશે. JPG, PNG અથવા WebP; વધુમાં વધુ 15 MB.</p>
+        <form id="uploadForm">
+          <label>ફોટાનું નામ / Title<input id="photoTitle" maxlength="150" required placeholder="જેમ કે Wedding Album 01"></label>
+          <label>કમ્પ્યુટરમાંથી ફોટો પસંદ કરો<input id="photoFile" type="file" accept="image/jpeg,image/png,image/webp" required></label>
+          <button id="uploadButton" class="primary" type="submit">ફોટો અપલોડ કરો</button>
+        </form>
+        <p id="uploadMessage" class="message" role="status"></p>
+      </section>
+
+      <section class="panel">
+        <div class="section-title"><div><h2>હાલની ગેલેરી</h2><p class="muted">અહીંથી ફોટા કાઢી પણ શકો છો.</p></div><button id="refreshGallery" class="secondary" type="button">Refresh</button></div>
+        <div id="adminGallery" class="grid"><div class="empty">ગેલેરી લોડ થઈ રહી છે…</div></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title"><div><h2>ગ્રાહકોની પસંદગી</h2><p class="muted">આ માહિતી ફક્ત મંજૂર Admin વાંચી શકે છે.</p></div><button id="refreshSelections" class="secondary" type="button">Refresh</button></div>
+        <div id="selectionsList"><div class="empty">પસંદગીઓ લોડ થઈ રહી છે…</div></div>
+      </section>
+    </section>
+  </main>
+  <footer>Admin access Firebase Authentication અને Security Rulesથી નિયંત્રિત છે.</footer>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
